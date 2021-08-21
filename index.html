@@ -23,8 +23,8 @@
                     <div>
                         <h4 class="font-medium">Memory</h4>
                         <div  class="grid grid-cols-2">
-                            <input id="8gb-memory" class="border block border-gray-400 rounded w-3/4 mb-4 px-2" type="text" placeholder="8GB unified memory">
-                            <input id="16gb-memory" class="border block border-gray-400 rounded w-3/4 mb-4 px-2" type="text" placeholder="16GB unified memory">  
+                            <input onclick="calcCost('Extra_Memory_Cost', 0)" id="8gb-memory" class="border block border-gray-400 rounded w-3/4 mb-4 px-2" type="text" placeholder="8GB unified memory">
+                            <input onclick="calcCost('Extra_Memory_Cost', 180)" id="16gb-memory" class="border block border-gray-400 rounded w-3/4 mb-4 px-2" type="text" placeholder="16GB unified memory">  
                         </div>
                     </div>
                     <br>
@@ -33,9 +33,9 @@
                         <h4 class="font-medium">storage</h4>
                         <div >
                             <div class="grid grid-cols-3">
-                            <input class="border block border-gray-400 rounded w-3/4 mb-4 px-2" type="text" placeholder="256GB SSD storage">
-                            <input class="border block border-gray-400 rounded w-3/4 mb-4 px-2" type="text" placeholder="512GB SSD storage">
-                            <input class="border block border-gray-400 rounded w-3/4 mb-4 px-2" type="text" placeholder="1TB SSD storage">
+                            <input onclick="calcCost('Extra_Storage_Cost', 0)" class="border block border-gray-400 rounded w-3/4 mb-4 px-2" type="text" placeholder="256GB SSD storage">
+                            <input onclick="calcCost('Extra_Storage_Cost', 100)" class="border block border-gray-400 rounded w-3/4 mb-4 px-2" type="text" placeholder="512GB SSD storage">
+                            <input onclick="calcCost('Extra_Storage_Cost', 180)" class="border block border-gray-400 rounded w-3/4 mb-4 px-2" type="text" placeholder="1TB SSD storage">
                         </div>
                         <br>
                         <br>
@@ -43,8 +43,8 @@
                     <div>
                         <h4 class="font-medium">Choose your delivery option</h4>
                         <div class="grid grid-cols-2">
-                            <input class="border block border-gray-400 rounded w-3/4 mb-4 px-2" type="text" placeholder="Friday,Aug 25 FREE Prime Delivery">
-                            <input class="border block border-gray-400 rounded w-3/4 mb-4 px-2" type="text" placeholder="Friday,Aug 21 Delivery charge $20">
+                            <input onclick="calcCost('Delivery_charge', 0)" class="border block border-gray-400 rounded w-3/4 mb-4 px-2" type="text" placeholder="Friday,Aug 25 FREE Prime Delivery">
+                            <input onclick="calcCost('Delivery_charge', 20)" class="border block border-gray-400 rounded w-3/4 mb-4 px-2" type="text" placeholder="Friday,Aug 21 Delivery charge $20">
                         </div>
                         <br>
                         <br>
@@ -53,7 +53,7 @@
                     <div class="grid grid-cols-2 font-medium">
                         <div class="grid grid-cols-2 pb-4">
                             <h5>Best Price</h5>
-                            <h5>$<span>1299</span></h5>
+                            <h5>$<span id="bestPriceSpan"></span></h5>
                             <hr>
                         </div>
                         
@@ -61,36 +61,36 @@
                     <div class="grid grid-cols-2 font-medium">
                         <div class="grid grid-cols-2 pb-4">
                             <h5>Extra Memory Cost</h5>
-                            <h5>$<span id="extra-memory-cost">0</span></h5>
+                            <h5>$<span id="memoryCostSpan"></span></h5>
                             <hr>
                         </div>
                     </div>
                     <div class="grid grid-cols-2 font-medium">
                         <div class="grid grid-cols-2 pb-4">
                             <h5>Extra Storage Cost</h5>
-                            <h5>$<span>0</span></h5>
+                            <h5>$<span id="storageCostSpan"></span></h5>
                             <hr>
                         </div>
                     </div>
                     <div class="grid grid-cols-2 font-medium">
                         <div class="grid grid-cols-2 pb-4">
                             <h5>Delivery charge</h5>
-                            <h5>$<span>0</span></h5>
+                            <h5>$<span id="deliveryCostSpan"></span></h5>
                             <hr class="font-extrabold">
                         </div>
                     </div>
                     <div class="grid grid-cols-2 font-medium">
                         <div class="grid grid-cols-2 pb-4">
                             <h5>Total Price</h5>
-                            <h5>$<span>1299</span></h5>
+                            <h5>$<span id="totalCostSpan"></span></h5>
                             <hr>
                         </div>
                     </div>
                     <h3>Add Pomo code</h3>
                     <div class="grid grid-cols-2">
                         <div class="grid grid-cols-2">
-                            <input class="border block border-gray-400 rounded w-3/4 mb-4 px-2" type="text">
-                            <button class="bg-red-600 rounded text-white font-medium">Apply</button>
+                            <input id="promoInput" class="border block border-gray-400 rounded w-3/4 mb-4 px-2" type="text">
+                            <button onclick="applyPromo()" class="bg-red-600 rounded text-white font-medium">Apply</button>
                         </div>
                     </div>
                     
@@ -100,7 +100,7 @@
         <br>
         <hr>
         <br>
-        <h2 class="text-center font-bold text-5xl">Total: $<span>1299</span></h2>
+        <h2 class="text-center font-bold text-5xl">Total: $<span id="subTotalSpan"></span></h2>
         <br>
     </main>
     <script src="js/app.js"></script>
